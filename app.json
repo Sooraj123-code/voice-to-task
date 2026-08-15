@@ -9,12 +9,17 @@
     "android": {
       "package": "com.voicetaskai.app",
       "permissions": [
-        "RECORD_AUDIO"
+        "RECORD_AUDIO",
+        "android.permission.RECORD_AUDIO"
       ]
     },
     "ios": {
       "bundleIdentifier": "com.voicetaskai.app",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSSpeechRecognitionUsageDescription": "Allow Voice Task AI to convert your speech into text.",
+        "NSMicrophoneUsageDescription": "Allow Voice Task AI to use your microphone."
+      }
     },
     "plugins": [
       [
@@ -24,6 +29,11 @@
           "speechRecognitionPermission": "Allow Voice Task AI to convert your speech into text."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "de53d628-234d-4021-9bc2-137217adfe7d"
+      }
+    }
   }
 }
