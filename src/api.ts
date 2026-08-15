@@ -1,7 +1,6 @@
 import { ExtractedTaskData } from "./types";
 
-const API_BASE_URL =
-  process.env.EXPO_PUBLIC_API_BASE_URL || "http://10.163.74.215:3000";
+const API_BASE_URL = "https://voice-to-task-wd0i.onrender.com";
 
 export function getApiBaseUrl() {
   return API_BASE_URL.replace(/\/$/, "");
@@ -12,7 +11,9 @@ export async function extractTaskFromTranscript(
 ): Promise<ExtractedTaskData> {
   const response = await fetch(`${getApiBaseUrl()}/api/extract-task`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify({
       text,
       referenceDate: new Date().toISOString(),
@@ -21,9 +22,11 @@ export async function extractTaskFromTranscript(
   });
 
   const body = await response.json().catch(() => ({}));
+
   if (!response.ok || !body.success) {
     throw new Error(body.error || `Server error: ${response.status}`);
   }
+
   return body.data as ExtractedTaskData;
 }
 
