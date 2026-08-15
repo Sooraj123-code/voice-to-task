@@ -1,0 +1,29 @@
+{
+  "expo": {
+    "name": "Voice Task AI",
+    "slug": "voice-task-ai",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.voicetaskai.app",
+      "permissions": [
+        "RECORD_AUDIO"
+      ]
+    },
+    "ios": {
+      "bundleIdentifier": "com.voicetaskai.app",
+      "supportsTablet": true
+    },
+    "plugins": [
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Allow Voice Task AI to use your microphone.",
+          "speechRecognitionPermission": "Allow Voice Task AI to convert your speech into text."
+        }
+      ]
+    ]
+  }
+}
